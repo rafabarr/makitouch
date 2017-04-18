@@ -1,0 +1,211 @@
+// External resources
+
+@import 'variables';
+
+// Fonts
+
+@mixin font-stack-01() {
+    font-family: $font-stack-01-family;
+    src: $font-stack-01-src;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin font-stack-02() {
+    font-family: $font-stack-02-family;
+    src: $font-stack-02-src;
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Debuggin
+
+@mixin debuggin($status, $bgc, $bc: #333) {
+	@if $status {
+		border: 1px dashed $bc;
+		@if $bgc != none {background-color: $bgc;}
+	}
+}
+
+// Flexbox
+
+@mixin flex-box($fd, $av, $ah, $bgc) {
+	display: flex;
+	flex-direction: $fd;
+	align-items: $av;
+	justify-content: $ah;
+	@if $bgc != none {background-color: $bgc;}
+}
+
+// Sections
+
+// [01] hero: navbar, slider
+
+// [01] hero: [navbar], slider
+
+@mixin link-navigation($ff, $fs, $c) {
+    font-family: $ff;
+    font-size: $fs;
+    @include text-link-style(center, $c);
+}
+
+@mixin link-navigation-hover($c) {
+    color: $c;
+}
+
+@mixin text-link-style($ta, $c, $tt:true) {
+    @if $tt != false {text-transform: uppercase;}
+    text-decoration: none;
+    text-align: $ta;
+    @if $c != none {color: $c;}
+}
+
+// [01] hero: navbar, [slider]
+
+@mixin text-info-style($ff, $fs, $ta, $c, $tt:false) {
+    @if $tt != false {text-transform: uppercase;}
+    font-family: $ff;
+    font-size: $fs;
+    text-align: $ta;
+    @if $c != none {color: $c;}
+    line-height: 1.25em;
+}
+
+@mixin rounded-button-style($bc, $br, $bgc, $ptb, $prl, $c, $fs:1em) {
+    display: inline-block;  // COMPROBAR FUNCIONAMIENTO
+    border: 2px solid $bc;
+    border-radius: $br;
+    background-color: $bgc;
+    padding: $ptb $prl;
+    color: $c;
+    font-size: $fs;
+}
+
+@mixin rounded-button-hover-style() {
+    // background-color: transparent;
+    // text-decoration: underline;
+}
+
+@mixin square-button-style($bc, $bgc, $ptb, $prl, $c, $fs:1em) {
+    @if $bc != none {border: 2px solid $bc;}
+    background-color: $bgc;
+    padding: $ptb $prl;
+    color: $c;
+    font-size: $fs;
+}
+
+@mixin square-button-hover-style($bc, $c) {
+    @if $bc != none {background-color: $bc;}
+    @if $c != none {color: $c;}
+}
+
+// [02] about
+
+@mixin question-text-style($ta, $c) {
+    @include text-info-style(CenturyGothicBold, 1em, $ta, $c);
+}
+
+@mixin intro-text-style($ta, $c) {
+    @include text-info-style(CenturyGothicBold, 1.6em, $ta, $c);
+}
+
+@mixin detail-text-style($ta, $c) {
+    @include text-info-style(CenturyGothicRegular, 1.2em, $ta, $c);
+}
+
+// ----------------------- CHECKED -----------------------
+
+// [03] settings
+
+// [04] target
+
+// [05] customers
+
+// [06] footer
+
+// @mixin square-button-setter-style($c) {
+// 	width: 100px;
+//     padding: 0.6em 0;
+// 	margin-right: 5px;
+// 	font: 0.85em DinLight;
+//     @include text-link-style(center, none);
+//     border: 0.1em solid rgba($c, $c, $c, 0.5);
+//     color: rgba($c, $c, $c, 0.5);
+// }
+
+// @mixin button-hover-setter-style($c, $bgc) {
+// 	color: $c;
+//     @if $bgc != none {background-color: $bgc;}
+// }
+
+// @mixin square-button-hover-setter-style($c, $bc) {
+// 	color: $c;
+//     border-color: $bc;
+// }
+
+// @mixin intro-container($width-per, $bgc) {
+// 	width: $width-per;
+// 	background-color: $bgc;
+// }
+
+// @mixin vertical-line-decorator-top($top) {
+// 	position: absolute;
+//     width: 3px;
+//     height: 25px;
+//     top: $top;
+//     margin-left: calc(50% - 1.5px);
+//     z-index: 995;
+// }
+
+// @mixin vertical-line-decorator-bottom($bottom) {
+//     position: absolute;
+//     width: 3px;
+//     height: 25px;
+//     bottom: $bottom;
+//     margin-left: calc(50% - 1.5px);
+//     z-index: 1000;
+// }
+
+// @mixin horizontal-line-decorator() {
+// 	position: absolute;
+//     width: 24px;
+//     height: 2px;
+//     bottom: 0.85em;
+//     left: 1em;
+//     border: 0;
+//     background-color: #fff;
+// }
+
+// @mixin horizontal-bottom-line-decorator() {
+// 	position: absolute;
+//     width: 100%;
+//     height: 4px;
+//     bottom: 0;
+//     left: 0;
+//     margin: 0;
+//     border: 0;
+//     background-color: #993333;
+// }
+
+// @mixin bg-image($url) {
+// 	background-image: url($url);
+// 	background-position: center;
+// 	background-size: cover;
+// }
+
+// @mixin image-anchor($height) {
+// 	position: relative;
+//     width: 100%;
+//     height: $height;
+//     background-color: rgba(0, 0, 0, 0.1);
+//     background-blend-mode: multiply;
+// }
+
+// @mixin bg-image-anchor-hover() {
+// 	background-color: rgba(0, 0, 0, 0.3);
+// }
+
+// @mixin image-anchor-hover() {
+// 	-webkit-filter: contrast(1.2) brightness(0.5);
+// 	filter: contrast(1.2) brightness(0.5);
+// }

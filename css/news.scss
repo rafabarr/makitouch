@@ -1,0 +1,264 @@
+// Sections
+
+// [01] hero: navbar, intro, description (product.scss)
+
+// [02] intro
+
+.news-intro {
+	width: 100%;
+	max-width: $display-max-width;
+	// height: 100%;
+	@include flex-box(row, center, center, $bc-09);
+	@include debuggin($status, none);
+	// display: none;
+
+	> .container {
+		width: 100%;
+		padding: 3em $mobilePaddingH;
+		@include flex-box(column, center, center, none);
+		@include debuggin($status, none);
+
+		.intro {
+			width: 100%;
+			@include flex-box(column, center, space-between, none);
+			@include debuggin($status, none);
+
+			p.question {
+				margin-bottom: 10px;
+				@include text-info-style(CenturyGothicRegular, 1em, center, $bc-03);
+
+				@media screen and (min-width: 1024px) {
+					margin-bottom: 0;
+				}
+			}
+
+			p.intro {
+				margin-bottom: 10px;
+				@include text-info-style(CenturyGothicBold, 1.6em, center, $bc-01);
+			}
+		}
+	}
+}
+
+// [03] board
+
+.news-board {
+	width: 100%;
+	max-width: $display-max-width;
+	// height: 100%;
+	@include flex-box(column, center, center, $bc-02);
+	@include debuggin($status, none);
+	// display: none;
+
+	@media screen and (min-width: 1024px) {
+		width: 70%;
+	}
+
+	.post {
+		width: 100%;
+		padding: $mobilePaddingV $mobilePaddingH;
+		@include flex-box(column, center, center, none);
+		@include debuggin($status, none);
+
+		> .article {
+			width: 100%;
+			@include flex-box(column, flex-start, center, none);
+			@include debuggin($status, none);
+
+			p.date {
+				margin-bottom: 10px;
+				@include text-info-style(CenturyGothicRegular, 1em, left, $bc-03);
+			}
+
+			a.title {
+				margin-bottom: 10px;
+				@include link-navigation(CenturyGothicBold, 1.6em, $bc-01);
+				text-transform: none;
+				text-align: left;
+			}
+
+			p.text {
+				margin-bottom: 30px;
+				@include text-info-style(CenturyGothicRegular, 1em, left, $bc-01);
+			}
+		}
+
+		.media {
+			width: 100%;
+			padding: 1em 0;
+			border-bottom: 1px solid $bc-01;
+			@include flex-box(column, center, center, none);
+			@include debuggin($status, none);
+
+			.image {
+				// display: none;
+				width: 100%;
+				height: 210px;
+				margin-bottom: 30px;
+				@include debuggin($status, none);
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center center;
+				}
+			}
+
+			.interaction {
+				width: 100%;
+				@include flex-box(row, center, flex-end, none);
+				@include debuggin($status, none);
+
+				span {
+					margin-right: 15px;
+					@include link-navigation(CenturyGothicRegular, 0.85em, $bc-01);
+					@include flex-box(row, center, center, none);
+					@include debuggin($status, none);
+
+					&:last-child {
+						margin-right: 0;
+					}
+
+					svg {
+						width: 20px;
+						height: 20px;
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+	}
+
+	> .pagination {
+		width: 100%;
+		padding: $mobilePaddingV $mobilePaddingH;
+		@include flex-box(column, center, center, none);
+		@include debuggin($status, none);
+
+		ul {
+			@include flex-box(row, center, center, none);
+			@include debuggin($status, none);
+
+			li {
+				margin-right: 15px;
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				a {
+					@include link-navigation(CenturyGothicRegular, 1em, $bc-01);
+				}
+			}
+		}
+	}
+}
+
+// [04] related: top, category
+
+.news-related {
+	width: 100%;
+	max-width: $display-max-width;
+	// height: 100%;
+	@include flex-box(column, center, center, none);
+	@include debuggin($status, none);
+	// display: none;
+
+	> .container {
+		width: 100%;
+		padding: 3em $mobilePaddingH;
+		@include flex-box(column, center, center, none);
+		@include debuggin($status, none);
+
+		> .top {
+			width: 100%;
+			margin-bottom: 50px;
+			@include flex-box(column, flex-start, center, none);
+			@include debuggin($status, none);
+
+			p.header {
+				margin-bottom: 10px;
+				@include text-info-style(CenturyGothicRegular, 1em, left, $bc-01);
+			}
+
+			hr {
+				width: 100%;
+			    height: 1px;
+			    margin-bottom: 15px;
+			    background-color: $bc-01;
+			    border: 0;
+			}
+
+			> .wrapper {
+				width: 100%;
+				margin-bottom: 15px;
+				@include flex-box(row, center, flex-start, none);
+				@include debuggin($status, none);
+
+				.index {
+					margin-right: 25px;
+					color: $bc-10;
+					@include debuggin($status, none);
+
+					span {
+						width: 30px;
+						height: 30px;
+						border-radius: 50%;
+						border: 1px solid $bc-10;
+						@include flex-box(row, center, center, none);
+					}
+				}
+
+				a.article {
+					// @include link-navigation(CenturyGothicRegular, 0.85em, $bc-01);
+					@include link-navigation(CenturyGothicBold, 0.85em, $bc-01);
+					text-transform: none;
+					text-align: left;
+				}
+			}
+		}
+
+		> .category {
+			width: 100%;
+			// margin-bottom: 30px;
+			@include flex-box(column, flex-start, center, none);
+			@include debuggin($status, none);
+
+			p.tag {
+				margin-bottom: 10px;
+				@include text-info-style(CenturyGothicRegular, 1em, left, $bc-01);
+			}
+
+			hr {
+				width: 100%;
+			    height: 1px;
+			    margin-bottom: 15px;
+			    background-color: $bc-01;
+			    border: 0;
+			}
+
+			> .wrapper {
+				width: 100%;
+				// @include flex-box(column, flex-start, center, none);
+				@include debuggin($status, none);
+
+				a.tag {
+					margin-bottom: 15px;
+					// $bc, $br, $bgc, $ptb, $prl, $c
+					@include rounded-button-style($bc-01, 1.5em, transparent, 
+						0.65em, 1.75em, $bc-01);
+					@include link-navigation(CenturyGothicRegular, 0.85em, $bc-01);
+					border-width: 1px;
+
+					&:hover {
+						border-color: transparent;
+						background-color: $bc-10;
+					}
+				}
+			}
+		}
+	}
+}
+
+// [06] footer

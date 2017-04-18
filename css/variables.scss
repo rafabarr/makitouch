@@ -1,0 +1,59 @@
+// Workspace
+
+$status: false;
+$display-max-width: 1920px;
+
+// Fonts
+
+$font-stack-01-family: CenturyGothicRegular;
+$font-stack-01-src:	url('../fonts/century-gothic-regular.woff2') format('woff2'),
+					url('../fonts/century-gothic-regular.woff') format('woff');
+
+$font-stack-02-family: CenturyGothicBold;
+$font-stack-02-src: url('../fonts/century-gothic-bold.woff2') format('woff2'),
+					url('../fonts/century-gothic-bold.woff') format('woff');
+
+$base-font-size: 15px;
+
+// Base colors
+
+$bc-01: #202142;	// Blue
+$bc-02: #fff;		// White
+$bc-03: #bd3548;	// Red
+$bc-04: #e6b731;	// Yellow
+$bc-05: #dedede;	// LigthGrey
+$bc-06: #ababab;	// DarkGrey
+$bc-07: #465d91;	// Facebook
+$bc-08: #6aaabc;	// Twitter
+$bc-09: #f0f0f0;	// Grey
+$bc-10: #e1eaf0;	// LightBlue
+
+// [01] hero: navbar, slider
+
+// [01] hero: [navbar], slider
+
+$navbar-width-per: 90%;
+$navbar-height-pix: 85px;
+
+$logo-svg-width-pix: 125px;
+$logo-svg-heigth-pix: 60px;
+
+// [01] hero: navbar, [slider]
+
+// [02] about
+// [03] settings
+// [04] target
+// [05] customers
+// [06] footer
+
+// Responsive
+
+$breakpoint-01: 965px;
+$breakpoint-02: 900px;
+$breakpoint-03: 800px;
+$breakpoint-04: 840px;
+$breakpoint-05: 630px;
+$breakpoint-06: 381px;
+
+$mobilePaddingV: 2em; // top, bottom
+$mobilePaddingH: 1em; // right, left

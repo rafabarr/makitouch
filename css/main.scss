@@ -1,0 +1,998 @@
+// External resources
+
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+
+// Fonts
+
+@font-face {
+	@include font-stack-01();
+}
+
+@font-face {
+	@include font-stack-02();
+}
+
+// General
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	font-family: CenturyGothicRegular;
+	font-size: $base-font-size;
+	color: $bc-01;
+}
+
+#svg {
+    display: none;
+}
+
+// Sections
+
+// [01] hero: navbar, slider
+
+.home-hero {
+	width: 100%;
+	max-width: $display-max-width;
+	height: 100%;
+	background: linear-gradient(to right, 
+		$bc-01 75%, 
+		$bc-02 25%);
+	@include flex-box(column, center, center, $bc-02);
+	@include debuggin($status, none);
+	// display: none;
+
+	@media screen and (min-width: 480px) and (orientation: landscape) {
+		height: 125%;
+	}
+
+	@media screen and (min-width: 1024px) {
+		height: 100%;
+    	background: linear-gradient(to right, 
+		$bc-01 50%, 
+		$bc-02 50%);
+    }
+
+	.navbar {
+		// position: fixed;
+		// top: 0;
+		width: $navbar-width-per;
+		height: $navbar-height-pix;
+		border-bottom: 1px solid $bc-02;
+		z-index: 999;
+		@include flex-box(row, center, space-between, none);
+		@include debuggin($status, none);
+
+		@media screen and (min-width: 1024px) {
+			border-bottom: none;
+		}
+
+		.logo {
+			@include debuggin($status, none);
+			
+			a {
+				display: block;
+
+				svg {
+					width: $logo-svg-width-pix;
+					height: $logo-svg-heigth-pix;
+					@include debuggin($status, none);
+				}
+			}
+		}
+
+		.navigation {
+			@include debuggin($status, none);
+
+			nav {
+
+				ul {
+					@include flex-box(row, center, space-between, none);
+
+					li {
+						display: none;
+						margin-right: 2em;
+
+						@media screen and (min-width: 1024px) {
+							display: list-item;
+						}
+
+						a {
+							@include link-navigation(CenturyGothicBold, 0.85em, $bc-01);
+
+							&:hover {
+								@include link-navigation-hover(#bd3548);
+							}
+
+							svg {
+								width: 22px;
+							    height: 20px;
+							    margin-left: 15px;
+							}
+						}
+
+						&:nth-child(8) {
+							margin-right: 0;
+							display: list-item;
+
+							a {
+								// $bc, $br, $bgc, $ptb, $prl, $c
+								@include rounded-button-style(transparent, 1.5em, $bc-03, 
+									0.35em, 1.15em, $bc-02, 0.85em);
+
+								&:hover {
+									@include rounded-button-hover-style();
+								}
+							}
+						}
+
+						&:nth-child(9) {
+							margin-right: 0;
+							display: list-item;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.intro {
+		position: relative;
+		width: 100%;
+		height: calc(100% - #{$navbar-height-pix});
+		@include flex-box(row, center, center, none);
+	    @include debuggin($status, none);
+
+	    .slide-left {
+	    	position: absolute;
+	    	top: 0;
+	    	left: 0;
+	    	width: 75%;
+	    	height: 100%;
+	    	background-color: $bc-01;
+		    @include debuggin($status, none);
+		    z-index: 2;
+
+		    @media screen and (min-width: 1024px) {
+		    	width: 50%;
+		    }
+	    }
+
+		.slide-center {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			@include flex-box(column, flex-end, center, none);
+			@include debuggin($status, none);
+
+			@media screen and (min-width: 1024px) {
+	    		align-items: center;
+	    	}
+
+			svg {
+				width: 50%;
+				height: 57%;
+				margin-top: 15%;
+				@include debuggin($status, none);
+
+				@media screen and (min-width: 320px) {
+					margin-top: 30%;
+				}
+
+				@media screen and (min-width: 360px) {
+					margin-top: 30%;
+				}
+
+				@media screen and (min-width: 375px) {
+					margin-top: 15%;
+				}
+
+				@media screen and (min-width: 412px) {
+					margin-top: 15%;
+				}
+
+				@media screen and (min-width: 480px) and (orientation: landscape) {
+					width: 25%;
+					height: 65.79%;
+					margin-top: 7.5%;
+				}
+
+				@media screen and (min-width: 625px) {
+					margin-top: 7.5%;
+				}
+
+				@media screen and (min-width: 768px) {
+					margin-top: 7.5%;
+				}
+
+				@media screen and (min-width: 1024px) {
+					width: 35%;
+					height: 79%;
+					margin-top: 0;
+		    	}
+			}
+		}
+
+	    .slide-right {
+	    	position: absolute;
+	    	top: 0;
+	    	right: 0;
+	    	width: 25%;
+	    	height: 100%;
+	    	background-color: $bc-02;
+		    @include debuggin($status, none);
+
+		    @media screen and (min-width: 1024px) {
+		    	width: 50%;
+		    }
+
+	        a {
+		    	position: absolute;
+		    	bottom: 5%;
+		    	left: -1px;
+		    	z-index: 3;
+
+		    	svg {
+					width: 18px;
+					height: 39px;
+				}
+		    }
+	    }
+
+	    .description {
+    		width: $navbar-width-per;
+    		height: 75%;
+    		z-index: 3;
+    		@include flex-box(column, flex-start, space-between, none);
+    		@include debuggin($status, none);
+
+    		@media screen and (min-width: 1024px) {
+    			flex-direction: row;
+    			align-items: center;
+    		}
+
+    		.wrapper-left {
+    			display: none;
+
+    			@media screen and (min-width: 1024px) {
+    				order: 1;
+    				width: 100%;
+    				// width: auto;
+	    			@include flex-box(column, center, center, none);
+	    			@include debuggin($status, none);
+			    }
+
+				p {
+					@include text-info-style(CenturyGothicRegular, 1.5em, center, $bc-02);
+
+					b {
+						color: $bc-03;
+						font-weight: normal;
+					}
+				}
+
+				a {
+					margin-top: 4.5em;
+				}
+    		}
+
+    		.image {
+    			order: 2;
+    			width: 100%;
+				@include flex-box(column, flex-end, center, none);
+			    @include debuggin($status, none);
+
+			    @media screen and (min-width: 1024px) {
+    				order: 2;
+    				width: 100%;
+    				// width: auto;
+    				align-items: center;
+			    }
+
+				img {
+					width: 50%;
+					object-fit: contain;
+					object-position: center center;
+					@include debuggin($status, none);
+
+					@media screen and (min-width: 1024px) {
+						width: 90%;
+					}
+				}
+			}
+
+    		.wrapper-right {
+    			order: 1;
+    			width: 75%;
+    			@include flex-box(column, flex-start, center, none);
+    			@include debuggin($status, none);
+
+    			@media screen and (min-width: 1024px) {
+    				order: 3;
+    				width: 100%;
+    				// width: auto;
+			    }
+
+			    p {
+			    	@include text-info-style(CenturyGothicRegular, 1.35em, left, $bc-02);
+
+			    	@media screen and (min-width: 1024px) {
+			    		@include text-info-style(CenturyGothicRegular, 1.6em, right, $bc-01);
+			    	}
+
+			    	b {
+			    		color: $bc-03;
+			    		font-weight: normal;
+			    	}
+			    }
+    		}
+
+    		.container {
+    			order: 3;
+    			width: 75%;
+    			@include flex-box(column, flex-start, center, none);
+    			@include debuggin($status, none);
+
+    			@media screen and (min-width: 1024px) {
+	    			display: none;
+			    }
+    		}
+	    }
+	}
+}
+
+// [02] about
+
+.home-about {
+	width: 100%;
+	max-width: $display-max-width;
+	// height: 100%;
+	@include flex-box(column-reverse, center, center, $bc-02);
+	@include debuggin($status, none);
+	// display: none;
+
+	@media screen and (min-width: 1024px) {
+		height: 350px;
+		flex-direction: row;
+	}
+
+	// CHECKED
+
+	.image {
+		width: 100%;
+		height: 350px;
+		@include debuggin($status, none);
+
+		@media screen and (min-width: 1024px) {
+			width: 40%;
+			height: 100%;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center center;
+		}
+	}
+
+	.description {
+		width: 100%;
+		height: 350px;
+		padding: $mobilePaddingV $mobilePaddingH;
+		@include flex-box(column, center, center, $bc-03);
+		@include debuggin($status, none);
+
+		@media screen and (min-width: 1024px) {
+			width: 60%;
+			height: 100%;
+		}
+
+		.container {
+			width: 100%;
+			height: 100%;
+			@include flex-box(column, flex-end, space-between, none);
+			@include debuggin($status, none);
+
+			@media screen and (min-width: 1024px) {
+				width: 80%;
+			}
+
+			p.question {
+				@include question-text-style(right, $bc-02);
+			}
+
+			p.intro {
+				@include intro-text-style(right, $bc-02);
+			}
+
+			// Insertar slider
+		}
+	}
+}
+
+// [03] settings
+
+.home-settings {
+	width: 100%;
+	max-width: $display-max-width;
+	height: 350px;
+	@include flex-box(row, center, center, $bc-02);
+	@include debuggin($status, none);
+	// display: none;
+
+	@media screen and (max-width: 630px) {
+		height: auto;
+		@include flex-box(column, center, center, $bc-02);
+	}
+
+	.wrapper-left {
+		width: 50%;
+		height: 100%;
+		@include flex-box(column, center, center, $bc-01);
+		@include debuggin($status, none);
+
+		@media screen and (max-width: 630px) {
+			width: 100%;
+			height: 350px;
+		}
+
+		.wrapper {
+			height: 65%;
+			@include flex-box(column, center, space-between, none);
+			@include debuggin($status, none);
+
+			@media screen and (max-width: 900px) {
+				height: 80%;
+			}
+
+			@media screen and (max-width: 840px) {
+				margin: 1em;
+			}
+
+			@media screen and (max-width: 420px) {
+				width: 85%;
+				height: 85%;
+			}
+
+			p.intro {
+				@include intro-text-style(center, $bc-02);
+			}
+
+			.container {
+				@include flex-box(row, center, space-between, none);
+
+				@media screen and (max-width: 900px) {
+					@include flex-box(column, flex-start, space-between, none);
+					@include debuggin($status, none);
+				}
+
+				> span {
+					@include flex-box(row, center, space-between, none);
+
+					@media screen and (max-width: 900px) {
+
+						&:first-child {
+							margin-bottom: 1em;
+						}
+
+						&:last-child {
+							margin-top: 1em;
+						}
+					}
+
+					p {
+						@include detail-text-style(left, $bc-02);
+
+						&:nth-child(1) {
+							text-align: right;
+						}
+					}
+
+					svg {
+						margin: 0 1em;
+						width: 40px;
+						height: 40px;
+
+						@media screen and (max-width: 900px) {
+
+							&:nth-child(2) {
+								margin-right: 0;
+							}
+
+							&:nth-child(1) {
+								margin-left: 0;
+							}
+
+						}
+					}
+				}
+
+				hr {
+					width: 85px;
+				    height: 1px;
+				    bottom: 0.85em;
+				    left: 1em;
+				    background-color: #fff;
+				    border: 0;
+				    display: none;
+
+				    @media screen and (max-width: 900px) {
+				    	display: block;
+					}
+				}
+			}
+		}
+	}
+
+	.wrapper-right {
+		width: 50%;
+		height: 100%;
+		@include flex-box(column, center, center, $bc-02);
+		@include debuggin($status, none);
+
+		@media screen and (max-width: 630px) {
+			width: 100%;
+			height: 350px;
+		}
+
+		.wrapper {
+			height: 65%;
+			@include flex-box(column, flex-start, space-between, none);
+			@include debuggin($status, none);
+
+			@media screen and (max-width: 900px) {
+				height: 85%;
+			}
+
+			@media screen and (max-width: 840px) {
+				margin: 1em;
+			}
+
+			@media screen and (max-width: 420px) {
+				width: 85%;
+				// height: 85%;
+			}
+
+			@media screen and (max-width: 640px) and (orientation: landscape) {
+				@include flex-box(column, flex-start, space-around, none);
+			}
+
+			p.intro {
+				@include intro-text-style(left, $bc-03);
+			}
+
+			p.detail {
+				@include detail-text-style(left, $bc-01);
+
+				&:nth-child(1) {
+					text-align: right;
+				}
+			}
+
+			ul {
+				@include flex-box(row, center, space-between, none);
+				@include debuggin($status, none);
+
+				@media screen and (max-width: 900px) {
+					margin: 0 auto;
+				}
+
+				@media screen and (max-width: 420px) {
+					width: 100%;
+					@include flex-box(row, center, space-around, none);
+				}
+
+				li {
+					margin-right: 2em;
+
+					@media screen and (max-width: 420px) {
+						margin: 0;
+					}
+
+					a {
+						display: block;
+						width: 135px;
+
+						@media screen and (max-width: 630px) {
+							width: 150px;
+						}
+
+						@media screen and (max-width: 420px) {
+							width: 135px;
+						}
+					}
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// [04] target
+
+.home-target {
+	position: relative;
+	width: 100%;
+	max-width: $display-max-width;
+	height: 375px;
+	padding-bottom: 3.5em;
+	@include flex-box(row, center, center, $bc-05);
+	@include debuggin($status, none);
+	// display: none;
+
+	@media screen and (max-width: 630px) {
+		@include flex-box(row, flex-start, center, $bc-05);
+		height: 450px;
+		padding-bottom: 0;
+	}
+
+	.container {
+		width: 100%;
+		height: 200px;
+		@include flex-box(column, center, space-between, none);
+		@include debuggin($status, none);
+
+		@media screen and (max-width: 630px) {
+			height: 175px;
+			@include flex-box(column, center, space-around, none);
+		}
+
+		p.question {
+			@include question-text-style(center, $bc-01);
+		}
+
+		p.intro {
+			@include intro-text-style(center, $bc-01);
+		}
+
+		ul {
+			@include flex-box(row, center, space-between, none);
+			@include debuggin($status, none);
+
+			@media screen and (max-width: 630px) {
+				position: absolute;
+				bottom: -8em;
+				height: 80%;
+				@include flex-box(column, center, space-between, none);
+			}
+
+			@media screen and (max-width: 420px) {
+				width: 100%;
+			}
+
+			li {
+				margin-right: 2em;
+
+				@media screen and (max-width: 630px) {
+					margin: 0;
+				}
+
+				a {
+					display: block;
+					width: 225px;
+
+					@media screen and (max-width: 630px) {
+						width: 235px;
+					}
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	.slider {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		bottom: -10%;
+		@include flex-box(row, center, center, none);
+		@include debuggin($status, none);
+
+		@media screen and (max-width: 630px) {
+			bottom: -12.5%;
+			@include flex-box(column, center, center, none);
+			// display: none;
+		}
+
+		.slide-left {
+			// width: 50%;
+			// height: 100%;
+			width: 274px;
+			height: 110px;
+			background: linear-gradient(to right, 
+				$bc-03 25%, 
+				$bc-02 25%);
+			@include flex-box(row, center, center, none);
+			@include debuggin($status, none);
+
+			.container {
+				width: 75%;
+				height: 50%;
+				@include flex-box(row, center, flex-end, $bc-02);
+
+				span {
+					margin-right: 2.5em;
+
+					svg {
+						width: 20px;
+						height: 23px;
+					}
+				}
+
+				p {
+					@include text-info-style(CenturyGothicBold, 0.8em, left, $bc-01);
+
+					b {
+						@include text-info-style(CenturyGothicBold, 1.5em, left, $bc-01);
+					}
+				}
+			}
+		}
+
+		.slide-right {
+			// width: 50%;
+			// height: 100%;
+			width: 274px;
+			height: 110px;
+			@include flex-box(row, center, center, $bc-02);
+			@include debuggin($status, none);
+
+			.image {
+				width: 87.5%;
+				height: 100%;
+				@include debuggin($status, none);
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center center;
+				}
+			}
+
+			span {
+				width: 12.5%;
+				height: 100%;
+				@include flex-box(row, center, center, $bc-03);
+
+				a {
+					width: 100%;
+					height: 100%;
+					@include flex-box(row, center, center, none);
+
+					svg {
+						width: 5px;
+						height: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+// [05] customers
+
+.home-customers {
+	width: 100%;
+	max-width: $display-max-width;
+	height: 350px;
+	@include flex-box(column, center, center, $bc-02);
+	@include debuggin($status, none);
+	// display: none;
+
+	@media screen and (max-width: 630px) {
+		height: 450px;
+	}
+
+	.container {
+		width: $navbar-width-per;
+		height: 200px;
+		margin-top: 5%;
+		@include flex-box(column, flex-start, space-between, none);
+		@include debuggin($status, none);
+
+		@media screen and (max-width: 630px) {
+			margin-top: 25%;
+		}
+
+		p.intro {
+			@include text-info-style(CenturyGothicBold, 1.4em, left, $bc-01);
+		}
+
+		ul {
+		    width: 100%;
+		    @include flex-box(row, center, center, none);
+		    @include debuggin($status, none);
+
+			li {
+			    margin: 0 5%;
+			    @include debuggin($status, none);
+
+				a {
+
+					img {
+					    max-width: 100%;
+					    max-height: 100%;
+					}
+				}
+			}
+		}
+
+		a {
+			margin: 0 auto;
+
+			svg {
+				width: 40px;
+				height: 40px;
+			}
+		}
+	}
+}
+
+// [06] footer
+
+.footer {
+	width: 100%;
+	max-width: $display-max-width;
+	// height: 100%;
+	@include flex-box(column, center, center, $bc-01);
+	@include debuggin($status, none);
+	// display: none;
+
+	> .container {
+		width: 100%;
+		height: 55px;
+		@include flex-box(row, center, space-between, none);
+		@include debuggin($status, none);
+
+		@media screen and (min-width: 625px) {
+			width: 90%;
+		}
+
+		@media screen and (min-width: 1024px) {
+			width: 80%;
+		}
+
+		p {
+			margin-left: 5%;
+			@include text-info-style(CenturyGothicBold, 0.8em, center, $bc-02);
+
+			@media screen and (min-width: 625px) {
+				margin-left: 0;
+			}
+
+			@media screen and (min-width: 1024px) {
+				font-size: 1em;
+			}
+		}
+
+		ul {
+			height: 100%;
+			@include flex-box(row, center, center, none);
+			@include debuggin($status, none);
+
+			li {
+				height: 100%;
+				@include flex-box(row, center, center, none);
+
+				@media screen and (min-width: 1024px) {
+					width: 197px;
+				}
+
+				a {
+					display: block;
+					width: 100%;
+					height: 100%;
+					padding: 0 20px;
+					@include flex-box(row, center, center, none);
+					@include link-navigation(CenturyGothicRegular, 1em, $bc-02);
+					@include debuggin($status, none);
+
+					span {
+						margin-left: 0.5em;
+						display: none;
+
+						@media screen and (min-width: 1024px) {
+							display: inline;
+						}
+					}
+
+					svg {
+						width: 20px;
+						height: 20px;
+					}
+
+					// a
+
+					&:hover {
+						@include rounded-button-hover-style();
+					}
+				}
+			}
+
+			.facebook {
+				background-color: $bc-07;
+			}
+
+			.twitter {
+				background-color: $bc-08;
+			}
+		}
+	}
+}
+
+.clear-button {
+	// $bc, $br, $bgc, $ptb, $prl, $c
+	@include rounded-button-style($bc-02, 1.5em, transparent, 
+		0.85em, 1.5em, $bc-02);
+	@include link-navigation(CenturyGothicBold, 0.95em, $bc-02);
+
+	&:hover {
+		@include rounded-button-hover-style();
+	}
+}
+
+.blue-button {
+	// $bc, $br, $bgc, $ptb, $prl, $c
+	@include rounded-button-style(transparent, 1.5em, $bc-01, 
+		0.85em, 1.5em, $bc-02);
+	@include link-navigation(CenturyGothicBold, 0.95em, $bc-02);
+
+	&:hover {
+		@include rounded-button-hover-style();
+	}
+}
+
+.red-button {
+	// $bc, $br, $bgc, $ptb, $prl, $c
+	@include rounded-button-style(transparent, 1.5em, $bc-03, 
+		0.85em, 1.5em, $bc-02);
+	@include link-navigation(CenturyGothicBold, 0.95em, $bc-02);
+
+	&:hover {
+		@include rounded-button-hover-style();
+	}
+}
+
+.yellow-button {
+	// $bc, $br, $bgc, $ptb, $prl, $c
+	@include rounded-button-style(transparent, 1.5em, $bc-04, 
+		0.85em, 1.5em, $bc-02);
+	@include link-navigation(CenturyGothicBold, 0.95em, $bc-02);
+
+	&:hover {
+		@include rounded-button-hover-style();
+	}
+}
+
+.gray-button {
+	// $bc, $br, $bgc, $ptb, $prl, $c
+	@include rounded-button-style(transparent, 1.5em, $bc-06, 
+		0.85em, 1.5em, $bc-02);
+	@include link-navigation(CenturyGothicBold, 0.95em, $bc-02);
+
+	&:hover {
+		@include rounded-button-hover-style();
+	}
+}
+
+// External resources
+
+@import 'product';
+@import 'education';
+@import 'set-up';
+@import 'news';
