@@ -1,0 +1,246 @@
+// Sections
+
+// [01] hero: navbar, intro, description (product.scss)
+
+// [02] intro
+
+.buy-intro {
+	width: 100%;
+	max-width: $display-max-width;
+	// height: 100%;
+	@include flex-box(row, center, center, $bc-09);
+	@include debuggin($status, none);
+	// display: none;
+
+	> .container {
+		width: 100%;
+		padding: 3em $mobilePaddingH;
+		@include flex-box(column, center, center, none);
+		@include debuggin($status, none);
+
+		@media screen and (min-width: 1024px) {
+			width: $navbar-width-per;
+			padding: 3em 0;
+		}
+
+		.intro {
+			width: 100%;
+			@include flex-box(column, center, space-between, none);
+			@include debuggin($status, none);
+
+			p.intro {
+				margin-bottom: 10px;
+				@include text-info-style(CenturyGothicBold, 1.6em, center, $bc-01);
+			}
+		}
+	}
+}
+
+// [03] makisuite-pack (3)
+
+.buy-makisuite_pack {
+	width: 100%;
+	max-width: $display-max-width;
+	// height: 100%;
+	// margin-bottom: 50px;
+	@include flex-box(column, center, center, none);
+	@include debuggin($status, none);
+	// display: none;
+
+	> div:nth-child(even) {
+		background-color: $bc-09;
+	}
+
+	.description {
+		width: 100%;
+		@include flex-box(column, flex-start, center, none);
+		@include debuggin($status, none);
+
+		// @media screen and (min-width: 625px) {
+		// 	width: 50%;
+		// }
+
+		@media screen and (min-width: 1024px) {
+			width: 50%;
+			// margin: 0 12.5% 0 2.5%;
+			margin: 0;
+			padding-left: 5%;
+		}
+
+		p.title {
+			margin-bottom: 10px;
+			@include text-info-style(CenturyGothicBold, 1.6em, left, $bc-03);
+			@include debuggin($status, none);
+
+			@media screen and (min-width: 1024px) {
+				margin-bottom: 0;
+			}
+		}
+
+		p.intro {
+			margin-bottom: 30px;
+			@include text-info-style(CenturyGothicBold, 1em, left, $bc-01);
+			@include debuggin($status, none);
+
+			@media screen and (min-width: 1024px) {
+				margin-bottom: 50px;
+			}
+		}
+
+		p.detail {
+			margin-bottom: 30px;
+			@include text-info-style(CenturyGothicRegular, 1em, left, $bc-01);
+			@include debuggin($status, none);
+
+			@media screen and (min-width: 625px) {
+				// margin-bottom: 0;
+			}
+		}
+
+		> .container {
+			width: 100%;
+			@include flex-box(row, center, flex-start, none);
+			@include debuggin($status, none);
+
+			a {
+				display: none;
+
+				@media screen and (min-width: 1024px) {
+					display: block;
+					// width: 205px;
+					margin-right: 30px;
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.image {
+		width: 100%;
+		height: 210px;
+		margin-bottom: 30px;
+		@include debuggin($status, none);
+
+		@media screen and (min-width: 1024px) {
+			width: 45%;
+			margin-bottom: 0;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center center;
+		}
+	}
+
+	.container {
+		width: 100%;
+		@include flex-box(column, center, flex-start, none);
+		@include debuggin($status, none);
+
+		@media screen and (min-width: 625px) {
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
+		@media screen and (min-width: 1024px) {
+			display: none;
+		}
+
+		> a {
+			// width: 210px;
+			margin-bottom: 30px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			@media screen and (min-width: 625px) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	> .left { // Imagen a la izquierda
+		width: 100%;
+		padding: $mobilePaddingV $mobilePaddingH;
+		@include flex-box(column, center, center, none);
+		@include debuggin($status, none);
+
+		@media screen and (min-width: 625px) {
+			width: 80%;
+			padding: 4em 0;
+		}
+
+		@media screen and (min-width: 1024px) {
+			// width: $navbar-width-per;
+			width: 100%;
+			padding: 4em 5%;
+			flex-direction: row;
+			justify-content: space-between;
+
+			// @media screen and (min-width: 1024px) {
+			// 	width: 50%;
+			// 	// margin: 0 12.5% 0 2.5%;
+			// 	margin: 0;
+			// 	padding-left: 5%;
+			// }
+
+			.description {
+				order: 2;
+				padding-left: 0;
+				padding-right: 5%;
+			}
+
+			.image {
+				order: 1;
+			}
+		}
+	}
+
+	> .right { // Imagen a la derecha
+		width: 100%;
+		padding: $mobilePaddingV $mobilePaddingH;
+		@include flex-box(column, center, center, none);
+		@include debuggin($status, none);
+
+		@media screen and (min-width: 625px) {
+			width: 80%;
+			padding: 4em 0;
+		}
+
+		@media screen and (min-width: 1024px) {
+			// width: $navbar-width-per;
+			width: 100%;
+			padding: 4em 5%;
+			flex-direction: row;
+			justify-content: space-between;
+
+			.description {
+				align-items: flex-end;
+
+				p.title {
+					text-align: right;
+				}
+
+				p.intro {
+					text-align: right;
+				}
+
+				p.detail {
+					text-align: right;
+				}
+
+				> .container {
+					justify-content: flex-end;
+				}
+			}
+		}
+	}
+}
+
+// [04] footer

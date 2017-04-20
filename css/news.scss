@@ -18,6 +18,11 @@
 		@include flex-box(column, center, center, none);
 		@include debuggin($status, none);
 
+		@media screen and (min-width: 1024px) {
+			width: $navbar-width-per;
+			padding: 3em 0;
+		}
+
 		.intro {
 			width: 100%;
 			@include flex-box(column, center, space-between, none);
@@ -40,7 +45,8 @@
 	}
 }
 
-// [03] board
+/* 	[03] board: related
+	[04] related: top, category */
 
 .news-board {
 	width: 100%;
@@ -51,209 +57,261 @@
 	// display: none;
 
 	@media screen and (min-width: 1024px) {
-		width: 70%;
+		flex-direction: row;
+		align-items: flex-start;
 	}
 
-	.post {
+	> .news {
 		width: 100%;
 		padding: $mobilePaddingV $mobilePaddingH;
 		@include flex-box(column, center, center, none);
-		@include debuggin($status, none);
+		@include debuggin($status, red);
 
-		> .article {
-			width: 100%;
-			@include flex-box(column, flex-start, center, none);
-			@include debuggin($status, none);
-
-			p.date {
-				margin-bottom: 10px;
-				@include text-info-style(CenturyGothicRegular, 1em, left, $bc-03);
-			}
-
-			a.title {
-				margin-bottom: 10px;
-				@include link-navigation(CenturyGothicBold, 1.6em, $bc-01);
-				text-transform: none;
-				text-align: left;
-			}
-
-			p.text {
-				margin-bottom: 30px;
-				@include text-info-style(CenturyGothicRegular, 1em, left, $bc-01);
-			}
+		@media screen and (min-width: 1024px) {
+			width: 70%;
+			padding: 3em 3.5em 3em 4em;
 		}
 
-		.media {
+		> .post {
 			width: 100%;
-			padding: 1em 0;
-			border-bottom: 1px solid $bc-01;
+			margin-bottom: 30px;
 			@include flex-box(column, center, center, none);
-			@include debuggin($status, none);
+			@include debuggin($status, yellow);
 
-			.image {
-				// display: none;
+			@media screen and (min-width: 1024px) {
+				flex-direction: row;
+				align-items: flex-start;
+				border-bottom: 1px solid $bc-01;
+				margin-bottom: 50px;
+			}
+
+			> .article {
 				width: 100%;
-				height: 210px;
-				margin-bottom: 30px;
+				@include flex-box(column, flex-start, center, none);
 				@include debuggin($status, none);
 
-				img {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-					object-position: center center;
+				@media screen and (min-width: 1024px) {
+					width: 70%;
+				}
+
+				p.date {
+					margin-bottom: 10px;
+					@include text-info-style(CenturyGothicRegular, 1em, left, $bc-03);
+				}
+
+				a.title {
+					margin-bottom: 10px;
+					@include link-navigation(CenturyGothicBold, 1.6em, $bc-01);
+					text-transform: none;
+					text-align: left;
+				}
+
+				p.text {
+					margin-bottom: 30px;
+					@include text-info-style(CenturyGothicRegular, 1em, left, $bc-01);
 				}
 			}
 
-			.interaction {
+			.media {
 				width: 100%;
-				@include flex-box(row, center, flex-end, none);
+				padding: 1em 0;
+				border-bottom: 1px solid $bc-01;
+				@include flex-box(column, center, center, none);
+				@include debuggin($status, DarkCyan);
+
+				@media screen and (min-width: 1024px) {
+					width: 30%;
+					border-bottom: none;
+					margin-bottom: 15px;
+					align-items: flex-end;
+				}
+
+				.image {
+					// display: none;
+					width: 100%;
+					height: 210px;
+					margin-bottom: 30px;
+					@include flex-box(column, center, center, none);
+					@include debuggin($status, none);
+
+					@media screen and (min-width: 1024px) {
+						// margin-bottom: 0;
+						width: 40%;
+						height: 150px;
+					}
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						object-position: center center;
+					}
+				}
+
+				.interaction {
+					width: 100%;
+					@include flex-box(row, center, flex-end, none);
+					@include debuggin($status, none);
+
+					@media screen and (min-width: 1024px) {
+						// justify-content: center;
+					}
+
+					span {
+						margin-right: 15px;
+						@include link-navigation(CenturyGothicRegular, 0.85em, $bc-01);
+						@include flex-box(row, center, center, none);
+						@include debuggin($status, none);
+
+						@media screen and (min-width: 1024px) {
+							margin-right: 30px;
+						}
+
+						&:last-child {
+							margin-right: 0;
+						}
+
+						svg {
+							width: 20px;
+							height: 20px;
+							margin-right: 5px;
+						}
+					}
+				}
+			}
+		}
+
+		> .pagination {
+			width: 100%;
+			@include flex-box(column, center, center, none);
+			@include debuggin($status, none);
+
+			ul {
+				@include flex-box(row, center, center, none);
 				@include debuggin($status, none);
 
-				span {
+				li {
 					margin-right: 15px;
-					@include link-navigation(CenturyGothicRegular, 0.85em, $bc-01);
-					@include flex-box(row, center, center, none);
-					@include debuggin($status, none);
 
 					&:last-child {
 						margin-right: 0;
 					}
 
-					svg {
-						width: 20px;
-						height: 20px;
-						margin-right: 5px;
+					a {
+						@include link-navigation(CenturyGothicRegular, 1em, $bc-01);
 					}
 				}
 			}
 		}
 	}
 
-	> .pagination {
+	> .related {
 		width: 100%;
-		padding: $mobilePaddingV $mobilePaddingH;
+		max-width: $display-max-width;
+		// height: 100%;
 		@include flex-box(column, center, center, none);
-		@include debuggin($status, none);
+		@include debuggin($status, red);
+		// display: none;
 
-		ul {
-			@include flex-box(row, center, center, none);
-			@include debuggin($status, none);
-
-			li {
-				margin-right: 15px;
-
-				&:last-child {
-					margin-right: 0;
-				}
-
-				a {
-					@include link-navigation(CenturyGothicRegular, 1em, $bc-01);
-				}
-			}
+		@media screen and (min-width: 1024px) {
+			width: 30%;
 		}
-	}
-}
 
-// [04] related: top, category
-
-.news-related {
-	width: 100%;
-	max-width: $display-max-width;
-	// height: 100%;
-	@include flex-box(column, center, center, none);
-	@include debuggin($status, none);
-	// display: none;
-
-	> .container {
-		width: 100%;
-		padding: 3em $mobilePaddingH;
-		@include flex-box(column, center, center, none);
-		@include debuggin($status, none);
-
-		> .top {
+		> .container {
 			width: 100%;
-			margin-bottom: 50px;
-			@include flex-box(column, flex-start, center, none);
-			@include debuggin($status, none);
+			padding: 3em $mobilePaddingH;
+			@include flex-box(column, center, center, none);
+			@include debuggin($status, LightBlue);
 
-			p.header {
-				margin-bottom: 10px;
-				@include text-info-style(CenturyGothicRegular, 1em, left, $bc-01);
+			@media screen and (min-width: 1024px) {
+				// padding: 3em 4em 3em 2em;
+				padding: 3em 4em 3em 3.5em;
 			}
 
-			hr {
+			> .top {
 				width: 100%;
-			    height: 1px;
-			    margin-bottom: 15px;
-			    background-color: $bc-01;
-			    border: 0;
-			}
+				margin-bottom: 50px;
+				@include flex-box(column, flex-start, center, none);
+				@include debuggin($status, green);
 
-			> .wrapper {
-				width: 100%;
-				margin-bottom: 15px;
-				@include flex-box(row, center, flex-start, none);
-				@include debuggin($status, none);
+				p.header {
+					margin-bottom: 10px;
+					@include text-info-style(CenturyGothicRegular, 1em, left, $bc-01);
+				}
 
-				.index {
-					margin-right: 25px;
-					color: $bc-10;
+				hr {
+					width: 100%;
+				    height: 1px;
+				    margin-bottom: 15px;
+				    background-color: $bc-01;
+				    border: 0;
+				}
+
+				> .wrapper {
+					width: 100%;
+					margin-bottom: 15px;
+					@include flex-box(row, center, flex-start, none);
 					@include debuggin($status, none);
 
-					span {
-						width: 30px;
-						height: 30px;
-						border-radius: 50%;
-						border: 1px solid $bc-10;
-						@include flex-box(row, center, center, none);
+					.index {
+						margin-right: 25px;
+						color: $bc-10;
+						@include debuggin($status, none);
+
+						span {
+							width: 30px;
+							height: 30px;
+							border-radius: 50%;
+							border: 1px solid $bc-10;
+							@include flex-box(row, center, center, none);
+						}
+					}
+
+					a.article {
+						// @include link-navigation(CenturyGothicRegular, 0.85em, $bc-01);
+						@include link-navigation(CenturyGothicBold, 0.85em, $bc-01);
+						text-transform: none;
+						text-align: left;
 					}
 				}
+			}
 
-				a.article {
-					// @include link-navigation(CenturyGothicRegular, 0.85em, $bc-01);
-					@include link-navigation(CenturyGothicBold, 0.85em, $bc-01);
-					text-transform: none;
-					text-align: left;
+			> .category {
+				width: 100%;
+				@include flex-box(column, flex-start, center, none);
+				@include debuggin($status, gray);
+
+				p.tag {
+					margin-bottom: 10px;
+					@include text-info-style(CenturyGothicRegular, 1em, left, $bc-01);
 				}
-			}
-		}
 
-		> .category {
-			width: 100%;
-			// margin-bottom: 30px;
-			@include flex-box(column, flex-start, center, none);
-			@include debuggin($status, none);
+				hr {
+					width: 100%;
+				    height: 1px;
+				    margin-bottom: 15px;
+				    background-color: $bc-01;
+				    border: 0;
+				}
 
-			p.tag {
-				margin-bottom: 10px;
-				@include text-info-style(CenturyGothicRegular, 1em, left, $bc-01);
-			}
+				> .wrapper {
+					width: 100%;
+					// @include flex-box(column, flex-start, center, none);
+					@include debuggin($status, none);
 
-			hr {
-				width: 100%;
-			    height: 1px;
-			    margin-bottom: 15px;
-			    background-color: $bc-01;
-			    border: 0;
-			}
+					a.tag {
+						margin-bottom: 15px;
+						// $bc, $br, $bgc, $ptb, $prl, $c
+						@include rounded-button-style($bc-01, 1.5em, transparent, 
+							0.65em, 1.75em, $bc-01);
+						@include link-navigation(CenturyGothicRegular, 0.85em, $bc-01);
+						text-transform: none;
+						border-width: 1px;
 
-			> .wrapper {
-				width: 100%;
-				// @include flex-box(column, flex-start, center, none);
-				@include debuggin($status, none);
-
-				a.tag {
-					margin-bottom: 15px;
-					// $bc, $br, $bgc, $ptb, $prl, $c
-					@include rounded-button-style($bc-01, 1.5em, transparent, 
-						0.65em, 1.75em, $bc-01);
-					@include link-navigation(CenturyGothicRegular, 0.85em, $bc-01);
-					border-width: 1px;
-
-					&:hover {
-						border-color: transparent;
-						background-color: $bc-10;
+						&:hover {
+							border-color: transparent;
+							background-color: $bc-10;
+						}
 					}
 				}
 			}
@@ -261,4 +319,4 @@
 	}
 }
 
-// [06] footer
+// [05] footer
